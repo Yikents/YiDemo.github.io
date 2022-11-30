@@ -1,0 +1,23 @@
+{
+  "id": "",
+  "name": "",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "1381305",
+      "name": "arrowright",
+      "font_class": "arrowright",
+      "unicode": "e604",
+      "unicode_decimal": 58884
+    },
+    {
+      "icon_id": "5638796",
+      "name": "更新",
+      "font_class": "gengxin",
+      "unicode": "e615",
+      "unicode_decimal": 58901
+    }
+  ]
+}

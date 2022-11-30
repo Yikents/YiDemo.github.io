@@ -1,0 +1,95 @@
+.body {
+    margin: 0px auto;
+}
+
+.box {
+    margin: 60px auto;
+    width: 400px;
+    height: 460px;
+    box-shadow: 0px 0px 2px 1px gray;
+}
+
+.box-img {
+    position: relative;
+    width: 400px;
+    height: 400px;
+    background: url(../picture/def34c231bb2fc5b4e92fcc9f2489f3e.jpg) no-repeat;
+    background-size: 400px 400px;
+}
+
+.box-valid {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    overflow: hidden;
+    background: url(../picture/def34c231bb2fc5b4e92fcc9f2489f3e.jpg) no-repeat;
+    background-size: 400px 400px;
+    box-shadow: 0px 0px 2px 1px gray;
+    z-index: 3;
+}
+
+.box-blank {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    background: white;
+    z-index: 2;
+}
+
+
+.box-block {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    width: 400px;
+    height: 60px;
+    background: #ccc;
+}
+
+.scroll-block {
+    position: absolute;
+    color: gray;
+    top: 0px;
+    left: 0px;
+    width: 60px;
+    height: 60px;
+    line-height: 60px;
+    text-align: center;
+    cursor: pointer;
+    background: rgba(255, 255, 255, 0.399);
+}
+
+.icon-arrowright {
+    font-size: 26px !important;
+    font-weight: bold;
+
+}
+
+.progress {
+    position: absolute;
+    left: 0px;
+    height: 60px;
+    background-color: skyblue;
+    opacity: .6;
+}
+
+.update {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    z-index: 4;
+}
+
+.update:hover .icon-gengxin{
+    color:#fff;
+}
+
+.icon-gengxin{
+    color:gray;
+    font-size:20px !important;
+    font-weight: bold;
+}
