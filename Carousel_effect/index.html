@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .wrap{
+            width: 100vw;
+            height: 100vh;
+            display:flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .box{ 
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            width:880px;
+            height: 200px;
+            transform-style:preserve-3d;
+            transform: rotateX(-10deg);
+            /* background:red; */
+        }
+        .box-external{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: absolute;
+            width: 880px;
+            height: 200px;
+            transform-style:preserve-3d;
+            animation: first 12s linear infinite;
+        }
+        .box-inside{
+            width: 560px;
+            height: 300px;
+            border-radius: 10px;
+            background-image: url(./image/583556fb0a929.jpg);
+            animation: second 16s linear infinite;
+        }
+        .ext-it{
+            position: absolute;
+            width:560px;
+            height: 300px;
+            margin:0px 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 6px 0px #fff;
+            /* background: rgba(255, 0, 0, 0.201); */
+        }
+        .external-items1{ 
+            transform:translateZ(589px);
+            background-image:url(./image/583556dc6db26.jpg);
+            background-size: cover;
+            filter: opacity(.9);
+        }
+        .external-items2{ 
+            transform: rotateY(-60deg) translateZ(589px);
+            background-image:url(./image/5835562565f29.jpg);
+            background-size: cover;
+            filter: opacity(.9);
+        }
+        .external-items3{ 
+            transform: rotateY(60deg) translateZ(589px);
+            background-image:url(./image/583556df08d32.jpg);
+            background-size: cover;
+            filter: opacity(.9);
+        }
+        .external-items4{ 
+            transform:rotateY(180deg) translateZ(589px);
+            background-image:url(./image/583556e44eec3.jpg);
+            background-size: cover;
+            filter: opacity(.9);
+        }
+        .external-items5{ 
+            transform: rotateY(120deg) translateZ(589px);
+            background-image:url(./image/583556f41e520.jpg);
+            background-size: cover;
+            filter: opacity(.9);
+        }
+        .external-items6{ 
+            transform:rotateY(-120deg) translateZ(589px);
+            background-image:url(./image/583556f796fa4.jpg);
+            background-size: cover;
+            filter: opacity(.9);
+        }
+        @keyframes first{
+          0%{
+            transform: rotateY(0deg);
+           }
+           16%,20%{
+            transform: rotateY(60deg);
+           }
+          32%,36%{
+            transform: rotateY(120deg);
+           }
+           48%,52%{
+            transform: rotateY(180deg);
+           }
+           64%,68%{
+            transform: rotateY(240deg);
+           }
+           80%,84%{
+            transform: rotateY(300deg);
+           }
+           96%,100%{
+            transform: rotateY(360deg);
+           }
+        }
+        @keyframes second{
+            0%{
+            transform: rotateY(0deg);
+           }
+          20%,30%{
+            transform: rotateY(60deg);
+           }
+           45%,55%{
+            transform: rotateY(180deg);
+           }
+           70%,80%{
+            transform: rotateY(240deg);
+           }
+           90%,100%{
+            transform: rotateY(360deg);
+           }
+        
+        }
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <div class="box">
+            <div class="box-external">
+                <div class="ext-it external-items1"></div>
+                <div class="ext-it external-items2"></div>
+                <div class="ext-it external-items3"></div>
+                <div class="ext-it external-items4"></div>
+                <div class="ext-it external-items5"></div>
+                <div class="ext-it external-items6"></div>
+            </div>
+            <div class="box-inside"></div>
+        </div>
+    </div>
+</body>
+</html>
