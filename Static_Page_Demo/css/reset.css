@@ -1,0 +1,17 @@
+body{
+    margin: 0 auto;
+}
+
+
+input{
+    display: block;
+    margin:0px;
+    padding:0px;
+    border: none;
+    outline: none;
+    background:color;
+}
+
+p{
+    margin: 0px;
+}
