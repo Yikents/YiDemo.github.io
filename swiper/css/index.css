@@ -1,0 +1,53 @@
+body{
+    margin:0px auto;
+}
+.wrap{
+    width: 100%;
+    display: flex;
+    padding-top:100px;
+    justify-content: center;
+}
+.box{
+    position: relative;
+    width: 400px;
+    height: 300px;
+    overflow: hidden;
+    background:blue;
+    
+}
+.all-image{
+    display: flex;
+    position:absolute;
+    left:0px;
+    z-index: 1;
+    /* transition: left 1s linear; */
+}
+.box-ig{
+    width:400px;
+    height: 300px;
+}
+.box-btn{
+    position:absolute;
+    display: flex;
+    justify-content: space-around;
+    width:120px;
+    bottom:10px;
+    left:0px;
+    right: 0px;
+    margin:0 auto;
+    z-index: 2;
+}
+.items-btn{
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background:#fff;
+    cursor: pointer;
+}
+.active{
+    background:skyblue;
+}
+.auto-img{
+    display: block;
+    width:100%;
+}
