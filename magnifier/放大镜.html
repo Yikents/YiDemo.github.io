@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../../代码/JQ/js/jquery-3.6.0.js"></script>
+    <style>
+        body {
+            margin: 0px;
+        }
+
+        .wrap {
+            position: relative;
+            margin: 100px auto;
+            width: 350px;
+            height: 464px;
+            box-shadow: 0px 0px 2px 0px #ccc;
+        }
+
+        .model {
+            display: none;
+            position: absolute;
+            left: 354px;
+            top: 0px;
+            width: 350px;
+            height: 350px;
+            background: url('./picture/1.jpg') no-repeat;
+            /* background-size: calc((350 / 236) * 100%); */
+            background-position: 0% 0%;
+        }
+
+        .layer {
+            position: absolute;
+            left: 0px;
+            right: 0px;
+            top: 0px;
+            bottom: 0px;
+            cursor: pointer;
+            z-index: 3;
+        }
+
+        .body-box {
+            position: relative;
+            width: 350px;
+            height: 350px;
+            margin-bottom: 20px;
+        }
+
+        .magnifier {
+            display: none;
+            top: 0px;
+            left: 0px;
+            position: absolute;
+            width: 236px;
+            height: 236px;
+            background: #fede4f;
+            opacity: .6;
+            z-index: 1;
+
+        }
+
+        .foot-box {
+            display: flex;
+            justify-content: space-between;
+            width: 350px;
+            height: 54px;
+            margin-bottom: 18px;
+        }
+
+        .arrow {
+            width: 25px;
+            height: 54px;
+            line-height: 54px;
+            font-size: 17px;
+            font-weight: bold;
+            text-align: center;
+            color: #cccccc;
+            cursor: pointer;
+        }
+
+        .box-items {
+            width: 300px;
+            height: 54px;
+            overflow: hidden;
+        }
+
+        .box-allImg {
+            position: relative;
+            display: flex;
+            align-items: center;
+            width: 420px;
+            height: 54px;
+        }
+
+        .b-ig {
+            box-sizing: border-box;
+            width: 50px;
+            height: 50px;
+            margin: 0px 5px;
+            cursor: pointer;
+        }
+
+        .active {
+            border: 2px solid #ec393c;
+        }
+
+
+        .foot-text {
+            display: flex;
+            justify-content: space-between;
+            width: 350px;
+            height: 20px;
+            font-size: 12px;
+            color: #666;
+        }
+
+        .auto-img {
+            display: block;
+            width: 100%;
+        }
+
+        .text-left {
+            margin-left: 10px;
+        }
+
+        .text-left>span:nth-of-type(2):hover {
+            color: #ec393c;
+            cursor: pointer;
+        }
+
+        .text-right {
+            margin-right: 10px;
+        }
+
+        .text-right:hover {
+            color: #ec393c;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrap">
+        <div class="body-box">
+            <img src="./picture/1.jpg" alt="" class="auto-img box-img">
+            <div class="magnifier"></div>
+            <div class="layer"></div>
+        </div>
+        <div class="foot-box">
+            <div class="arrow arrow-left">&lt;</div>
+            <div class="box-items">
+                <div class="box-allImg">
+                    <div class="b-ig active"><img src="./picture/1.jpg" class="auto-img"></div>
+                    <div class="b-ig"><img src="./picture/2.jpg" class="auto-img"></div>
+                    <div class="b-ig"><img src="./picture/3.jpg" class="auto-img"></div>
+                    <div class="b-ig"><img src="./picture/4.jpg" class="auto-img"></div>
+                    <div class="b-ig"><img src="./picture/5.jpg" class="auto-img"></div>
+                    <div class="b-ig"><img src="./picture/6.jpg" class="auto-img"></div>
+                    <div class="b-ig"><img src="./picture/7.jpg" class="auto-img"></div>
+                </div>
+            </div>
+            <div class="arrow arrow-right">&gt;</div>
+        </div>
+        <div class="foot-text">
+            <div class="text-left"><span></span><span>关注</span></div>
+            <div class="text-right">举报</div>
+        </div>
+        <div class="model"></div>
+    </div>
+</body>
+<!-- <script>
+    window.onload = function () {
+        var layer = document.querySelector('.layer');
+        var magnifier = document.querySelector('.magnifier');
+        var model = document.querySelector('.model');
+        var ig = document.querySelectorAll('.b-ig');
+        var boxImg = document.querySelector('.box-img');
+        var arrowLeft = document.querySelector('.arrow-left');
+        var arrowRight = document.querySelector('.arrow-right');
+        var boxLength = document.querySelector('.box-allImg');
+        var boxItems = document.querySelector('.box-items');
+        var len1 = parseFloat(getComputedStyle(boxItems).width);
+        var len2 = parseFloat(getComputedStyle(boxLength).width);
+        var allLen = len2 - len1;
+        var a = 0;
+
+        // 实现放大镜的功能
+        layer.onmousemove = function (e) {
+            magnifier.style.display = 'block';
+            model.style.display = 'block';
+            var moveX = e.offsetX;
+            var moveY = e.offsetY;
+            var magnifierWidth = parseFloat(getComputedStyle(magnifier).width);
+            var magnifierHeight = parseFloat(getComputedStyle(magnifier).height);
+            var layerWidth = parseFloat(getComputedStyle(layer).width);
+            var layerHeight = parseFloat(getComputedStyle(layer).height);
+            var maxX = layerWidth - magnifierWidth;
+            var maxY = layerHeight - magnifierHeight;
+            var x = moveX - magnifierWidth / 2;
+            var y = moveY - magnifierHeight / 2;
+            x = x < 0 ? 0 : x > maxX ? maxX : x;
+            y = y < 0 ? 0 : y > maxY ? maxY : y;
+            magnifier.style.left = x + 'px';
+            magnifier.style.top = y + 'px';
+            var digX = (x / maxX) * 100;
+            var digY = (y / maxY) * 100;
+            model.style.backgroundPosition = digX + '%' + digY + '%';
+            var backgroundS={
+                BSX:(layerWidth / magnifierWidth) * 100,
+                BSY:(layerHeight / magnifierHeight) * 100
+            }
+            model.style.backgroundSize= backgroundS.BSX+'%'+backgroundS.BSY+'%';
+          
+        }
+
+        layer.onmouseleave = function () {
+            magnifier.style.display = 'none';
+            model.style.display = 'none';
+        }
+
+        //图片的切换
+        for (var i = 0; i < ig.length; i++) {
+            ig[i].onmouseenter = function () {
+                if(this.classList.value==='b-ig active'){
+                    return;
+                }
+                document.querySelector('.b-ig.active').classList.remove('active');
+                this.classList.add('active');
+                boxImg.src = this.querySelector('img').src;
+                model.style.backgroundImage = `url(${this.querySelector('img').src})`;
+            }
+        }
+
+        //左箭头的切换
+        arrowLeft.onclick = function () {
+            if (a <= allLen && a > 0) {
+                a = a - allLen / 2;
+                boxLength.style.left = -a + 'px';
+            }else{
+                return;
+            }
+        }
+
+        //右箭头的切换
+        arrowRight.onclick = function () {
+            var s = parseFloat(getComputedStyle(boxLength).left)
+            if (s <= 0) {
+                if (a < allLen) {
+                    a = a + allLen / 2;
+                }else{
+                    return;
+                }
+                boxLength.style.left = -a + 'px';
+            }
+        }
+
+        //禁止页面文字被选中
+        document.addEventListener('selectstart',function(e){
+            e.preventDefault();
+        })
+        
+    }
+</script> -->
+<script src="./jq.js"></script>
+</html>
