@@ -1,0 +1,110 @@
+body {
+    margin: 0px;
+    padding: 0px;
+}
+
+
+.wrap {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+ul {
+    display: flex;
+    margin: 0px;
+    padding: 0px;
+    list-style: none;
+}
+
+.box {
+    width: 500px;
+    height: 500px;
+    border: 1px solid #ccc;
+}
+
+.box-header {
+    box-sizing: border-box;
+    height: 100px;
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+}
+
+.box-header-nav {
+    display: flex;
+    align-items: center;
+    height: 40px;
+}
+
+.box-header-text {
+    font-size: 14px;
+}
+
+.box-header-Scolor>li {
+    box-sizing: border-box;
+    width: 26px;
+    height: 26px;
+    margin: 0px 10px;
+    border: 1px solid black;
+    box-shadow: 0px 0px 3px 0px gray inset;
+    cursor: pointer;
+}
+
+.box-header-Scolor>li:nth-child(1) {
+    background: black;
+}
+
+.box-header-Scolor>li:nth-child(2) {
+    background: red;
+}
+
+.box-header-Scolor>li:nth-child(3) {
+    background: orange;
+}
+
+.box-header-Scolor>li:nth-child(4) {
+    background: yellow;
+}
+
+.box-header-Scolor>li:nth-child(5) {
+    background: green;
+}
+
+.box-header-Scolor>li:nth-child(6) {
+    background: blue;
+}
+
+.box-header-bottom {
+    display: flex;
+    align-items: center;
+}
+
+.box-clear-canvas {
+    padding: 5px;
+    margin-right: 20px;
+    border: 1px solid black;
+    background: #efefef;
+    cursor: pointer;
+}
+
+.box-current-color {
+    font-size: 13px;
+    margin-right: 20px
+}
+
+.box-current-color>span {
+    font-weight: bold;
+}
+
+.box-eraser {
+    padding: 5px 10px;
+    background: #efefef;
+    border: 1px solid black;
+    cursor: pointer;
+}
+
+.box-body {
+    width: 100%;
+}
